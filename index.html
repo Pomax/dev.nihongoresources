@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The basic Nihongoresources Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="results.css">
+    <script src="components/tiny-toolkit/tiny-toolkit.js"></script>
+
+    <!-- omniblock usability -->
+    <script src="components/IME/IME.js"></script>
+    <script src="components/autosuggest/autosuggest.js"></script>
+    <link rel="stylesheet" href="components/autosuggest/autosuggest.css">
+    <script src="components/omniblock/omniblock.js"></script>
+
+    <script src="main.js"></script>
+  </head>
+  <body>
+
+    <header>
+      <h1>Basic Nihongoresources search</h1>
+      <div class="omnisearch">
+        <form id="searchform" name="searchform" action="API/searchdb.php" method="GET" autocomplete="off" onsubmit="getResults(this)">
+          <input type="text" name="searchterm" onfocus="this.value = this.value;">
+          <span class='search-button' title='search with this term as a word start'><a id='start-search' href='?searchterm={{term}}*' >start</a></span>
+          <span class='search-button' title='search with this term as a substring' ><a id='substring-search' href='?searchterm=*{{term}}*'>substring</a></span>
+          <span class='search-button' title='search with this term as a word end'  ><a id='end-search' href='?searchterm=*{{term}}' >end</a></span>
+          <input type="submit" value="search dictionaries" title="click to search the dictionaries with your search term">
+
+          <div class="extras">
+            <section class="general">
+              <p>general options</p>
+              <input type="checkbox" checked name="general.plain"><label for="general.plain">show plain results</label>
+              <input type="checkbox" checked name="general.verb"><label for="general.verb">show possible verb forms</label>
+              <input type="checkbox" checked name="general.romaji"><label for="general.romaji">show romanisation</label>
+            </section>
+            <section class="language">
+              <p>language options</p>
+              <input type="checkbox" checked name="language.english"><label for="language.english">show English hits</label>
+              <input type="checkbox" checked name="language.japanese"><label for="language.japanese">show Japanese hits</label>
+            </section>
+            <section class="searching">
+              <p>show results from</p>
+              <input type="checkbox" checked name="search.dictionary"><label for="search.dictionary">dictionary</label>
+              <input type="checkbox" checked name="search.kanji"><label for="search.kanji">kanji dictionary</label>
+              <input type="checkbox" checked name="search.sfx"><label for="search.sfx">sound effects</label>
+              <!--<input type="checkbox" checked name="search.names"><label for="search.names">names</label>-->
+              <!--<input type="checkbox" checked name="search.particles"><label for="search.particles">particles</label>-->
+            </section>
+            <section class="sorting">
+              <p>sorting options</p>
+              (
+                <input type="checkbox" name="sort.alphabetically"><label for="sort.alphabetically">alphabetically</label>
+              )
+              <input type="checkbox" checked name="sort.kana"><label for="sort.kana">kana ordering</label>
+              <input type="checkbox" name="sort.kanji"><label for="sort.kanji">kanji ordering</label>
+              <!--<input type="checkbox" name="sort.dictsort"><label for="sort.dictsort">group by head</label>-->
+              <input type="checkbox" checked name="sort.ascending"><label for="sort.ascending">sort ascending</label>
+              <input type="checkbox" name="sort.reverse"><label for="sort.reverse">reverse string sort</label>
+            </section>
+            <section class="filter">
+              <p>filter word classes</p>
+              <input type="checkbox" checked name="filter.verbs"><label for="filter.verbs">verbs</label>
+              (
+                <input type="checkbox" checked name="filter.verbs.godan"><label for="filter.verbs.godan">godan</label>
+                <input type="checkbox" checked name="filter.verbs.ichidan"><label for="filter.verbs.ichidan">ichidan</label>
+                <input type="checkbox" checked name="filter.verbs.irregular"><label for="filter.verbs.irregular">irregular</label>
+              )
+              <input type="checkbox" checked name="filter.noun"><label for="filter.noun">nouns</label>
+              <input type="checkbox" checked name="filter.adjectives"><label for="filter.adjectives">adjectives</label>
+              (
+                <input type="checkbox" checked name="filter.adjectives.verbal"><label for="filter.adjectives.verbal">verbal</label>
+                <input type="checkbox" checked name="filter.adjectives.nominal"><label for="filter.adjectives.nominal">nominal</label>
+              )
+              <input type="checkbox" checked name="filter.adverbs"><label for="filter.adverbs">adverbs</label>
+              <input type="checkbox" checked name="filter.expressions"><label for="filter.expressions">expressions</label>
+              <input type="checkbox" checked name="filter.particles"><label for="filter.particles">particles</label>
+            </section>
+          </div>
+
+        </form>
+      </div>
+    </header>
+
+    <section class="content"></section>
+
+    <footer>
+      <p>basic NR version (c) 2012 nihongoresources.com</p>
+    </footer>
+  </body>
+</html>

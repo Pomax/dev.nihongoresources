@@ -1,0 +1,2 @@
+dev.nihongoresources represents the current work done to upgrade or redesign the Nihongoresources search front and backend.
+Any issues found should be reported on this repository, and pull requests may be made (although they may be shot down) to improve functionality or fix bugs.

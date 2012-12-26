@@ -1,0 +1,27 @@
+.suggestionbox {
+  border: 1px solid grey;
+  background-color: white;
+  text-align: left;
+  cursor: default;
+  font-size: 75%;
+}
+
+.suggestion {
+  background-color: inherit;
+  padding: 2px;
+}
+
+.suggestion.selected {
+  background-color: #CCF;
+}
+
+.suggestion:hover {
+  background-color: #CCF;
+}
+
+.suggestion + .suggestion {
+  border-top: 1px solid black;
+  border-color: #CCC;
+  margin-top: 2px;
+  padding-top: 2px;
+}

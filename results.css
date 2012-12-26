@@ -1,0 +1,314 @@
+@charset "UTF-8";
+
+#searchresults {
+  float: left;
+  text-align: left;
+  width: 49%;
+  height: 100%;
+  overflow: auto;
+
+  border: 0.5em solid #99F;
+  border-color: content-border-color;
+  border-radius: 1em;
+
+  padding: 0.5em 2px 0.5em 0.5em;
+  margin-left: 5px;
+}
+
+#information {
+  float: right;
+  position: relative;
+  z-index: 200;
+  text-align: left;
+  width: 44%;
+  height: 100%;
+  overflow: none;
+
+  border: 0.5em solid #99F;
+  border-color: content-border-color;
+  border-radius: 1em;
+
+  padding: 0.5em 2px 0.5em 0.5em;
+  margin-right: 5px;
+
+  font-family: Arial;
+}
+
+#information .content {
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+/* ===================== */
+
+#information .content p+p {
+  margin-top: 1em;
+}
+
+
+#scrollable {
+  overflow: auto;
+  height: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+#scrollable p {
+  font-family: Arial;
+}
+
+#scrollable p+p {
+  margin-top: 1em;
+}
+
+.entry {
+  display: block;
+  width: 100%;
+}
+
+.entry:hover {
+  background-color: counter-color-1;
+}
+
+.entry + .entry {
+  margin: 1em 0px;
+}
+
+.entry td {
+  width: 100%;
+}
+
+.detailpane {
+  cursor: pointer;
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  background-image: url('show.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.is-locked {
+  background-color: counter-color-2;
+}
+
+.show-locked {
+  /* takes presedence over :hover */
+  background-image: url('selected.png?o=50') !important;
+}
+
+.keb {
+  display: inline-block;
+}
+
+.keb span + span:before {
+  content: "、";
+}
+
+.reb.wk:before { content: " 【"; }
+.reb {
+  display: inline-block;
+}
+.reb.wk:after { content: "】"; }
+
+.reb span + span:before { content: "、"; }
+.reb ruby + ruby:before { content: "、"; }
+
+.metadata div { display: inline-block; }
+.metadata div + div { margin-left: 0.5em; }
+.metadata .bushu:before { content: "radical: "; }
+.metadata .bushuji:before { content: "("; }
+.metadata .bushuji:after { content: ")"; }
+.metadata .stroke:before { content: "stroke count: "; }
+.metadata .grade:before { content: "jouyou grade: "; }
+
+
+.pos {
+  display: block;
+  color: #999;
+  text-indent: 1em;
+  margin-top: 0.3em;
+}
+
+.pos span + span:before {
+  content: ", ";
+}
+
+.form {
+  display: block;
+  color: #999;
+  text-indent: 1em;
+  margin-top: 0.3em;
+}
+
+.eng span {
+  display: block;
+  text-indent: 1em;
+  margin-top: 0.3em;
+}
+
+.enumeration:before { content: "("; }
+.enumeration {
+  font-size: 75%;
+  margin: 0px 0.5em;
+  vertical-align: baseline;
+  color: focal-color-2;
+}
+.enumeration:after { content: ")"; }
+
+/* compatibility */
+num:before { content: "("; }
+num {
+  font-size: 75%;
+  margin: 0px 0.5em;
+  vertical-align: baseline;
+  color: focal-color-2;
+}
+num:after { content: ")"; }
+
+.entrycount:before { content: "Entries found: "; font-size: 120%; }
+.entrycount {
+  margin-top: 15px;
+  display: inline-block;
+  font-size: 65%;
+}
+.entrycount:after { content: "."; font-size: 120%; }
+
+.querytime:before { content: "Search took "; font-size: 120%; }
+.querytime {
+  margin-top: 1em;
+  display: inline-block;
+  font-size: 65%;
+}
+.querytime:after { content: "s"; font-size: 120%; }
+
+.detailheader {
+  background-color: focal-color-2;
+}
+
+.kanjifield {
+  line-height: 1.3em;
+}
+
+.kanjifield + .kanjifield {
+  margin-top: 1em;
+}
+
+/* make it look like normal text */
+.crosslink a {
+  text-decoration: none;
+  font-family: Georgia;
+  font-size: 95%;
+  font-weight: 100;
+  color: #000;
+}
+
+.crosslink a:hover {
+  color: #99F;
+  color: focal-color-1;
+}
+
+.search-options {
+  position: relative;
+  left: 15%;
+  margin: 0.5em 0px;
+  text-align: left;
+  margin-top: -1.5em;
+}
+
+.search-option-label {
+  color: focal-color-1;
+}
+
+#information li {
+  list-style: none;
+  margin: 0.5em;
+}
+
+#information li:before {
+  content: "- ";
+}
+
+
+.kanjiinfo img {
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 4em;
+}
+
+.kanjiinfo .visual {
+  background-color: counter-color-1;
+}
+
+/**
+  Broken images get replaced with plain text instead
+**/
+
+.missing-image {
+  height: 3em;
+  padding-top: 1em;
+}
+
+.missing-image span {
+  font-size: 3.3em;
+  font-family: opera-font-fix-mincho;
+}
+
+.missing-image div {
+  font-family: Arial;
+  font-size: 10px;
+  margin-left: 0.5em;
+  margin-top: -0.3em;
+}
+
+.missing-kanji-image-link {
+  color: #000 !important;
+}
+
+.relations {
+ margin: 0.5em 0px;
+}
+
+.relations div {
+  margin-left: 1em;
+}
+
+h6 {
+  background-color: counter-color-2;
+  border: 1px solid dominant-border-color;
+  border-left: none;
+  border-right: none;
+  margin: 0.5em 0px;
+  font-family: sansfont;
+  color: #99F;
+
+  color: focal-color-1;
+}
+
+.mecab:before {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-variant: small-caps;
+  content: "possible phrase, search individual terms:";
+  display: block;
+  margin: 1em 0px;
+}
+
+.mecab a+a:before {
+  content: " | ";
+  color: black;
+}
+
+.verbform:before {
+  content: "possible verb form (";
+}
+.verbform:after {
+  content: ")";
+}
